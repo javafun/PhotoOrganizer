@@ -18,15 +18,11 @@ fs.readdir(testFolder, (err, files) => {
                         if (error)
                             console.log('Error: ' + error.message);
                         else {
+                            //console.log(exifData);
 
-                            //console.log(exifData.exif.DateTimeOriginal.constructor.name);
+                            if (exifData.exif.DateTimeOriginal) {
 
-                            //var mtime = new Date(exifData.exif.DateTimeOriginal);
-
-                            //console.log(mtime);
-
-                            if (exifData.exif.length) {
-                                console.log(exifData.exif.DateTimeOriginal);
+                                //console.log(exifData.exif.DateTimeOriginal);
 
                                 let dtString = exifData.exif.DateTimeOriginal.substring(0, 10);
 
@@ -65,41 +61,6 @@ fs.readdir(testFolder, (err, files) => {
 
                         }
                     });
-
-                    //             let fileTaken = file.split('_')[0];
-                    //             let fileTakenYear = fileTaken.substring(0,4);
-                    //             let fileTakenMonth = fileTaken.substring(4,6);
-                    //             let fileTakenDate = fileTaken.substring(6,8);
-                    //             console.log(dateFolder);
-
-                    // //             var mtime = new Date(util.inspect(stats.mtime));
-
-                    //             var yearFolder = path.resolve(__dirname, testFolder, fileTakenYear);
-                    //             var monthFolder = path.resolve(yearFolder, fileTakenMonth);
-                    //             var dateFolder = path.resolve(monthFolder, fileTakenDate);
-                    // //             console.log(dateFolder);
-
-                    //             if (!fs.existsSync(yearFolder)) {
-                    //                 fs.mkdir(yearFolder, () => {
-                    //                     console.log(`Folder - ${yearFolder} created`);
-                    //                 });
-                    //             }
-
-                    //             if (!fs.existsSync(monthFolder)) {
-                    //                 fs.mkdir(monthFolder, () => {
-                    //                     console.log(`Folder - ${monthFolder} created`);
-                    //                 });
-                    //             }
-
-                    //             if (!fs.existsSync(dateFolder)) {
-                    //                 fs.mkdir(dateFolder, () => {
-                    //                     console.log(`Folder - ${dateFolder} created`);
-
-                    //                 });
-                    //             }
-                    //             fs.rename(filePath, path.resolve(dateFolder, file));
-
-
                 }
             });
         }
